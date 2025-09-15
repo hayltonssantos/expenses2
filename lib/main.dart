@@ -100,6 +100,13 @@ class _MyHomePageState extends State<MyHomePage> {
           icon: const Icon(Icons.add),
           onPressed: () => _openTransactionFormModal(context),
         ),
+        if (isLandscape)(
+        IconButton(
+          icon: Icon(_showChart ? Icons.list : Icons.show_chart),
+          onPressed: () => setState(() {
+            _showChart = !_showChart;
+          }),
+        ))
       ],
     );
 
@@ -114,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            if (isLandscape)
+            /* if (isLandscape)
               (Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -128,7 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                   ),
                 ],
-              )),
+              )), */
             if (_showChart || !isLandscape)
               (SizedBox(
                 height: availableHeight * (isLandscape ? 0.7 : 0.3),
